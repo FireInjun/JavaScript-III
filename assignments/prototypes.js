@@ -7,7 +7,7 @@
   
   Each class has unique properites and methods that are defined in their block comments below:
 */
-  
+
 /*
   === GameObject ===
   * createdAt
@@ -15,15 +15,13 @@
   * destroy() // prototype method -> returns the string 'Object was removed from the game.'
 */
 
-
-
 class GameObject {
   constructor(obj) {
     this.createdAt = obj.createdAt;
     this.dimensions = obj.dimensions;
   }
 }
-GameObject.prototype.destroy = function(){
+GameObject.prototype.destroy = function() {
   return "Object was removed from the game.";
 };
 
@@ -41,17 +39,15 @@ console.log(add(12, 17))*/
 */
 
 class CharacterStats extends GameObject {
-  constructor(obj){
+  constructor(obj) {
     super(obj);
     this.hp = obj.hp;
     this.name = obj.name;
   }
 }
-CharacterStats.prototype.takeDamage = function(){
+CharacterStats.prototype.takeDamage = function() {
   return `${this.name} took damage.`;
-}
-
-
+};
 
 /*
   === Humanoid ===
@@ -64,17 +60,17 @@ CharacterStats.prototype.takeDamage = function(){
 */
 
 class Humanoid extends CharacterStats {
-    constructor(obj){
-      super(obj);
-      this.faction = obj.faction;
-      this.weapons = obj.weapons;
-      this.language = obj.language;
-    }  
+  constructor(obj) {
+    super(obj);
+    this.faction = obj.faction;
+    this.weapons = obj.weapons;
+    this.language = obj.language;
+  }
 }
 
-Humanoid.prototype.greet = function(){
-  return `${this.name} offers a greeting in ${this.language}.`
-}
+Humanoid.prototype.greet = function() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 /*
   * Inheritance chain: Humanoid -> CharacterStats -> GameObject
@@ -84,21 +80,18 @@ Humanoid.prototype.greet = function(){
 
 //Test you work by uncommenting these 3 objects and the list of console logs below:
 
-
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
     length: 2,
     width: 1,
-    height: 1,
+    height: 1
   },
   hp: 5,
-  name: 'Bruce',
-  faction: 'Mage Guild',
-  weapons: [
-    'Staff of Shamalama',
-  ],
-  language: 'Common Toungue',
+  name: "Bruce",
+  faction: "Mage Guild",
+  weapons: ["Staff of Shamalama"],
+  language: "Common Toungue"
 });
 
 const swordsman = new Humanoid({
@@ -106,16 +99,13 @@ const swordsman = new Humanoid({
   dimensions: {
     length: 2,
     width: 2,
-    height: 2,
+    height: 2
   },
   hp: 15,
-  name: 'Sir Mustachio',
-  faction: 'The Round Table',
-  weapons: [
-    'Giant Sword',
-    'Shield',
-  ],
-  language: 'Common Toungue',
+  name: "Sir Mustachio",
+  faction: "The Round Table",
+  weapons: ["Giant Sword", "Shield"],
+  language: "Common Toungue"
 });
 
 const archer = new Humanoid({
@@ -123,16 +113,13 @@ const archer = new Humanoid({
   dimensions: {
     length: 1,
     width: 2,
-    height: 4,
+    height: 4
   },
   hp: 10,
-  name: 'Lilith',
-  faction: 'Forest Kingdom',
-  weapons: [
-    'Bow',
-    'Dagger',
-  ],
-  language: 'Elvish',
+  name: "Lilith",
+  faction: "Forest Kingdom",
+  weapons: ["Bow", "Dagger"],
+  language: "Elvish"
 });
 
 const druid = new Humanoid({
@@ -140,20 +127,14 @@ const druid = new Humanoid({
   dimensions: {
     length: 10,
     width: 20,
-    height: 50,
+    height: 50
   },
   hp: 1000,
-  name: 'Paul',
-  weapons: [
-    'Bow',
-    'Dagger',
-    'Club'
-  ],
-  language: 'Dutch',
+  name: "Paul",
+  weapons: ["Bow", "Dagger", "Club"],
+  language: "Dutch"
 });
-console.log(druid)
-
-
+console.log(druid);
 
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
@@ -166,8 +147,7 @@ console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
-
-  // Stretch task: 
-  // * Create Villian and Hero classes that inherit from the Humanoid class.  
-  // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villian and one a hero and fight it out with methods!
+// Stretch task:
+// * Create Villian and Hero classes that inherit from the Humanoid class.
+// * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+// * Create two new objects, one a villian and one a hero and fight it out with methods!

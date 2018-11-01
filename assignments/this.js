@@ -172,72 +172,68 @@ let idontreallyknowspeech = function (obj) {
 
 //This is take two, I think it will be better
 class UserBIO {
-    constructor(obj) {
-        this.firstName = obj.firstName;
-        this.midi = obj.midi;
-        this.lastName = obj.lastName;
-        this.age = obj.age;
-        this.countryOfOrigin = obj.countryOfOrigin;
-        this.currentCountry = obj.currentCountry;
-        this.city = obj.city;
-        this.state = obj.state,
-        this.userType = obj.userType;
-        this.courseType = obj.courseType;
-        this.cohortNum = obj.cohortNum
-    };
+  constructor(obj) {
+    this.firstName = obj.firstName;
+    this.midi = obj.midi;
+    this.lastName = obj.lastName;
+    this.age = obj.age;
+    this.countryOfOrigin = obj.countryOfOrigin;
+    this.currentCountry = obj.currentCountry;
+    this.city = obj.city;
+    (this.state = obj.state), (this.userType = obj.userType);
+    this.courseType = obj.courseType;
+    this.cohortNum = obj.cohortNum;
+  }
 }
-UserBIO.prototype.wholeName = function (){
-    return `${this.firstName} ${this.lastName}`
-}
-UserBIO.prototype.milName = function (){
-    return `${this.lastName} + ${this.firstName}`
-}
+UserBIO.prototype.wholeName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+UserBIO.prototype.milName = function() {
+  return `${this.lastName} + ${this.firstName}`;
+};
 
 class PsycheInfo extends UserBIO {
-    constructor(obj) {
-        super(obj);
-        this.learningStyle = obj.learningStyle;
-        this.strengths = obj.strengths;
-        this.weaknesses = obj.weaknesses;
-        this.readingLevel = obj.readingLevel;
-        this.highestEdcompleted = obj.highestEdcompleted;
-    }
-};
+  constructor(obj) {
+    super(obj);
+    this.learningStyle = obj.learningStyle;
+    this.strengths = obj.strengths;
+    this.weaknesses = obj.weaknesses;
+    this.readingLevel = obj.readingLevel;
+    this.highestEdcompleted = obj.highestEdcompleted;
+  }
+}
 
 class CurrentKnowledge extends PsycheInfo {
-    constructor(obj) {
-        super(obj);
-        this.pPe = obj.pPe
-        this.yearspPe = obj.yearspPe
-    }
-};
+  constructor(obj) {
+    super(obj);
+    this.pPe = obj.pPe;
+    this.yearspPe = obj.yearspPe;
+  }
+}
 
 class Blockers extends CurrentKnowledge {
-    constructor(obj) {
-        super(obj);
-        this.biggestFear = obj.biggestFear;
-        this.married = obj.married;
-        this.kids = obj.kids;
-        this.numOfKids = obj.numOfKids;
-    }
-};
+  constructor(obj) {
+    super(obj);
+    this.biggestFear = obj.biggestFear;
+    this.married = obj.married;
+    this.kids = obj.kids;
+    this.numOfKids = obj.numOfKids;
+  }
+}
 
-
-
-
-
-UserBIO.prototype.Intro1 = function () {
-    let wholeName = (`${this.firstName} + ${this.lastName}`)
-    return `HELLO WORLD!!!! \n
+UserBIO.prototype.Intro1 = function() {
+  let wholeName = `${this.firstName} + ${this.lastName}`;
+  return `HELLO WORLD!!!! \n
         My name is: ${wholeName}! But you can call me: ${this.firstName},\n 
-        or ${this.lastName}, if you have military experience. Whatever works for you! \n
+        or ${
+          this.lastName
+        }, if you have military experience. Whatever works for you! \n
         I'm from ${this.city}, and I attend Lambda School in ${this.csClass}.\n 
-        I'm testing a simple program I made to test my skills in Javascript lesson III.`
+        I'm testing a simple program I made to test my skills in Javascript lesson III.`;
 };
 
-UserBIO.prototype.Intro2 = function () {
-
-    return `Hey, if you're reading this, it means you had second thoughts. \n
+UserBIO.prototype.Intro2 = function() {
+  return `Hey, if you're reading this, it means you had second thoughts. \n
     I'm ${this.wholeName}, a Student here. This can be either the greatest \n
     or worst experiece in your life. You need to think hard about what you want in life. \n
     This is not a place for those who second guess, those who can't swallow their pride, \n
@@ -245,16 +241,15 @@ UserBIO.prototype.Intro2 = function () {
     We have all taken some of the biggest risks you can take in life. \n
     Made sacrifices on the daily that your average 'Joe Citizen' would cry about.\n
     \n
-    If you're already whining and second guessing, this isn't the place for you.`
-}
-
-
-Skills.prototype.brag = function () {
-    return `I use these skills to get by: ${this.skillz}.`;
+    If you're already whining and second guessing, this isn't the place for you.`;
 };
 
-Skills.prototype.lament = function () {
-    return `I have these skills: ${this.skillz} from birth and I still \n 
+Skills.prototype.brag = function() {
+  return `I use these skills to get by: ${this.skillz}.`;
+};
+
+Skills.prototype.lament = function() {
+  return `I have these skills: ${this.skillz} from birth and I still \n 
     struggle \n 
     every \n 
     single \n 
@@ -264,77 +259,82 @@ Skills.prototype.lament = function () {
     You are no longer the smartest person in the room, you are just a student now.`;
 };
 
-Goals.prototype.fakeItTillYouMakeIt = function () {
-    return `I really enjoy it here! \n 
+Goals.prototype.fakeItTillYouMakeIt = function() {
+  return `I really enjoy it here! \n 
     I've already learned alot! \n 
     Programming is more about thinking the right way, not necessarily knowing everything. \n
     Memorizing can only get you so far as well... \n 
-    By the time I'm done, I hope to know how to ${this.goalz}.`
+    By the time I'm done, I hope to know how to ${this.goalz}.`;
 };
 
-Goals.prototype.dontfakeit = function () {
-    return (`I remember when I had free time, \n
+Goals.prototype.dontfakeit = function() {
+  return `I remember when I had free time, \n
     and money, \n
     and I didn't have nightmares about missing semicolons \(\;\)or  curly braces \(\{\}\).\n 
     Programming is more about thinking the right way, not necessarily knowing everything. \n
     But, you will need to know HOW to find whatever you don't know. Google-fu is a sought after skill. \n 
     By the time I'm done, I hope to know how to ${this.goalz}. \n
-    But at the rate I'm going, I may not even make it out of month 1!`)
+    But at the rate I'm going, I may not even make it out of month 1!`;
 };
 
-Setbacks.prototype.pushthroughyourproblems = function () {
-    return `Getting here wasn't easy. I personally had ${this.setback} slow me down.\m
-    But, if I can do it, so can you.`
+Setbacks.prototype.pushthroughyourproblems = function() {
+  return `Getting here wasn't easy. I personally had ${
+    this.setback
+  } slow me down.\m
+    But, if I can do it, so can you.`;
 };
 
-Setbacks.prototype.yourproblemsaretoogreat = function () {
-    return `Getting here wasn't easy. I personally had ${setback} slow me down.\m
+Setbacks.prototype.yourproblemsaretoogreat = function() {
+  return `Getting here wasn't easy. I personally had ${setback} slow me down.\m
     And that was probably a walk in the park compared to what you're more than likely going through.\n
     Maybe you should consider going to a community college instead.\n
     \n
     Like I said before. This program is for the best of the best. If you don't have the confidence to even try, \n
-    turn around. There will be 5 people lined up to replace you. Not everyone is worthy of this opportunity.`
+    turn around. There will be 5 people lined up to replace you. Not everyone is worthy of this opportunity.`;
 };
 
+let genericYouCanDoThisSpeech = function() {
+  return (
+    obj.Intro1() +
+    obj.brag() +
+    obj.fakeItTillYouMakeIt() +
+    obj.pushthroughyourproblems()
+  );
+};
 
-
-
-
-
-
-
-
-
-let genericYouCanDoThisSpeech = function () {
-    return obj.Intro1() + obj.brag() +
-        obj.fakeItTillYouMakeIt() + obj.pushthroughyourproblems()
-}
-
-let idontreallyknowspeech = function (obj) {
-    return (Student.prototype.Intro2(obj) + Skills.prototype.lament(obj) +
-        Goals.prototype.dontfakeit(obj) + Setbacks.prototype.pushthroughyourproblems(obj))
-}
-
-
-
-
-
-
-
-
+let idontreallyknowspeech = function(obj) {
+  return (
+    Student.prototype.Intro2(obj) +
+    Skills.prototype.lament(obj) +
+    Goals.prototype.dontfakeit(obj) +
+    Setbacks.prototype.pushthroughyourproblems(obj)
+  );
+};
 
 const id0001 = new Student({
-    firstName: `Mykeal`,
-    lastName: `Kenny`,
-    city: `Orlando`,
-    csClass: 10,
-    skillz: [`
+  firstName: `Mykeal`,
+  lastName: `Kenny`,
+  city: `Orlando`,
+  csClass: 10,
+  skillz: [
+    `
     trained attention to detail`,
-        `undying dedication`,
-        `and ability to admit fault and take responsibility.`
-    ],
-    goalz: [`to be more than just your run of the mill average developer,`, `to be able to carry my skills into the world and help fix it,`, `and to be taken seriously when I have an idea.`],
-    setback: [`6 kids,`, `pending court case for custody of 1 of them,`, `high school drop-out`, `college drop-out`, `never had anyone believe in me,`, `and no other options left.`]
+    `undying dedication`,
+    `and ability to admit fault and take responsibility.`
+  ],
+  goalz: [
+    `to be more than just your run of the mill average developer,`,
+    `to be able to carry my skills into the world and help fix it,`,
+    `and to be taken seriously when I have an idea.`
+  ],
+  setback: [
+    `6 kids,`,
+    `pending court case for custody of 1 of them,`,
+    `high school drop-out`,
+    `college drop-out`,
+    `never had anyone believe in me,`,
+    `and no other options left.`
+  ]
 });
 
 /*const mage = new Humanoid({
@@ -353,13 +353,12 @@ const id0001 = new Student({
     language: 'Common Toungue',
   });
 */
-console.log(id0001.genericYouCanDoThisSpeech())
-console.log(id0001)
+console.log(id0001.genericYouCanDoThisSpeech());
+console.log(id0001);
 
 /*#########################################################################################################################################*/
 //For reference
 // console.log(this);
-
 
 // === Principle 1: Window/Global Binding ===
 
@@ -368,7 +367,6 @@ console.log(id0001)
 //   return name; //?
 // }
 // sayName("Moonchild");
-
 
 // === Principle 2: Implicit Binding ===
 
